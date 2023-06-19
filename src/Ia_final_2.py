@@ -1,11 +1,10 @@
 import numpy as np
 import matplotlib.pyplot as plt
-import os
 import scipy.io
 from scipy.io import wavfile
 
-file = os.path.join("D:/Virgile/audio/non.3vgpd6n4.ingestion-7b68fffd8-smmnb.s48.wav")
-file2 = os.path.join("D:/Virgile/audio/oui.3vgp484f.ingestion-7b68fffd8-mmz2v.s56.wav")
+file = open("D:/Virgile/audio/non.3vgpd6n4.ingestion-7b68fffd8-smmnb.s48.wav", "rb")
+file2 = open("D:/Virgile/audio/oui.3vgp484f.ingestion-7b68fffd8-mmz2v.s56.wav", "rb")
 
 rate, aud_data = scipy.io.wavfile.read(file)
 rate2, aud_data2 = scipy.io.wavfile.read(file2)
@@ -23,9 +22,3 @@ print("fourier 1 : ",fourier," ",len(fourier))
 print("-----------------------------------------------")
 
 print("fourier 2 : ",fourier2," ",len(fourier2))
-
-plt.figure(1)
-plt.plot(fourier)
-plt.xlabel('n')
-plt.ylabel('amplitude')
-plt.show()
