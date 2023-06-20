@@ -70,7 +70,7 @@ if __name__ == '__main__':
     preprocessed_data = preprocess_data(data)
     
     # Division des données en ensembles d'entraînement et de test
-    X_train, X_test, y_train, y_test = train_test_split(preprocessed_data, labels, test_size=0.2)
+    X_train, X_test, y_train, y_test = train_test_split(preprocessed_data, labels, test_size=0.5)
     
     # Définition du modèle CNN-LSTM
     input_shape = preprocessed_data[0].shape
