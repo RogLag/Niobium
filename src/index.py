@@ -44,14 +44,14 @@ print("\nProcessing data... \n")
 
 for file_data in tqdm(all_data):
     
-    comparatif = comparator.comparator(file_data["data"], reader.read_wav("temoin/oui.3vgp65o0.ingestion-7b68fffd8-4vtgd.s1.wav")["data"], reader.read_wav("temoin/non.3vgpacp1.ingestion-7b68fffd8-mmz2v.s1.wav")["data"])
+    comparatif = comparator.get_word(file_data["data"])
     
-    if comparatif["type"] == "yes" :
+    if comparatif == "yes" :
             
-        data.write_json(comparatif["data"], "D:/Niobium/database/yes.json", "yes")
+        data.write_json(file_data["file"], file_data["data"], "D:/Niobium/database/yes.json", "yes")
     
-    elif comparatif["type"] == "no" :
+    elif comparatif == "no" :
         
-        data.write_json(comparatif["data"], "D:/Niobium/database/no.json", "no")
+        data.write_json(file_data["file"], file_data["data"], "D:/Niobium/database/no.json", "no")
 
 print("\nData processed !")

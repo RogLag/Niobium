@@ -33,7 +33,7 @@ def read_json(path):
     return json.load(file)
 
 
-def write_json(data, path, type2):
+def write_json(name, data, path, type2):
     
     """
     Write a json file
@@ -41,9 +41,7 @@ def write_json(data, path, type2):
     
     database = read_json(path)
         
-    database.append(data.tolist())
+    database[name] = str(data.tolist())
     
-    print(database[1:])
-    print(type(database))
-    
-    json.dumps(database)
+    with open(f'D:/Niobium/database/{type2}.json', 'w') as mon_fichier:
+	    json.dump(database, mon_fichier)

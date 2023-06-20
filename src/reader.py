@@ -19,7 +19,7 @@ def read_wav(file):
         
         fourier = np.fft.fft(aud_data)
         
-        return {"data": fourier, "len": len(fourier), "rate": rate, "aud_data": aud_data}
+        return {"data": fourier, "len": len(fourier), "rate": rate, "aud_data": aud_data, "file": file}
     
     except Exception as e:
         return None
