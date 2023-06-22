@@ -101,7 +101,7 @@ optimizer = optim.Adam(model.parameters(), lr=0.001)
 
 # Entraîner le modèle
 def train():
-    num_epochs = 1000
+    num_epochs = 100
     print("Training...")
     for epoch in tqdm(range(num_epochs)):
         running_loss = 0.0
