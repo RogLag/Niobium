@@ -23,10 +23,13 @@ class Model(nn.Module):
         x = self.fc3(x)
         return x
 
-def testing_multiple(printing = False):
+def testing_multiple(input = "simple",printing = False):
     # Charger le modèle
     model = Model()
-    model.load_state_dict(torch.load("model.pt"))
+    if input != "best":
+        model.load_state_dict(torch.load("model.pt"))
+    else:
+        model.load_state_dict(torch.load("models/70model.pt"))
     model.eval()
 
     # Liste des fichiers à tester
@@ -93,10 +96,13 @@ def testing_multiple(printing = False):
     print(f"Nombre de réussites: {reussite}")
     print(f"Nombre d'échecs: {echec}")
 
-def testing_single(printing = False):
+def testing_single(input = "simple",printing = False):
     # Charger le modèle
     model = Model()
-    model.load_state_dict(torch.load("model.pt"))
+    if input != "best":
+        model.load_state_dict(torch.load("model.pt"))
+    else:
+        model.load_state_dict(torch.load("models/70model.pt"))
     model.eval()
 
     # Liste des fichiers à tester
@@ -166,5 +172,7 @@ def testing_single(printing = False):
     print(f"Nombre d'échecs: {echec}")
     
 if __name__ == "__main__":
-    testing_multiple()
-    testing_single()
+    print('Pour lancer avec le meilleur model il ecrire "best" sinon faire entrer')
+    input = input("Entrez votre choix: ")
+    testing_multiple(input=input)
+    testing_single(input=input)
