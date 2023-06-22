@@ -5,7 +5,7 @@ IA
 
 ## Deployment
 
-Pour déployer le projet, mettez vous dans le fichier puis executez cette commande:
+Pour déployer le projet, mettez vous dans le fichier puis executez cette commande dans un command prompt (pas powershell):
 
 ```bash
     scripts\activate.bat
